@@ -2,7 +2,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const port = 3000; 
+require('./config/database');
+
 const indexRouter = require('./routes/index');
+const resourcesRouter = require('./routes/resources');
 
 // Set up express app
 const app = express();
@@ -19,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Mount routes with app.use()
 app.use('/', indexRouter);
+app.use('/resources', resourcesRouter);
 
 
 // Tell App to listen
