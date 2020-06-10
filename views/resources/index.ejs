@@ -10,7 +10,9 @@
   <tbody>
     <% resources.forEach(function(r) { %>
       <tr>
-        <td><%= r.Name %></td>
+        <td><%= r.Organization %></td>
+        <td><%= r.Website %></td>
+        <td><%= r.Practioner %></td>
         <td><%= r.Website %></td>
         <td><a href="/resources/<%= r._id %>">DETAILS</a></td>
       </tr>

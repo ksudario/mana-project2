@@ -3,7 +3,8 @@ const Resource = require('../models/resource');
 module.exports = {
     index,
     show,
-    new: newResource
+    new: newResource,
+    create
 };
 
 function index(req, res) {
@@ -20,4 +21,19 @@ function show(req, res) {
 
 function newResource(req, res) {
     res.render('resources/new', { name: 'Add A Resource '});
+}
+
+function create(req, res) {
+    req.body.telehealth = !!req.body.telehealth;
+    req.body.practioner = req.body.practioner.replace(/\s*,\s*/g, ',');
+    if (req.body.practioner) req.body.practioner = req.body.practioner.split(',');
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    const resource = new Resource(req.body);
+    resource.save(function(err){
+        if (err) return res.redirect('/resources/new');
+        console.log(resource);
+        res.redirect('/resources');
+    })
 }

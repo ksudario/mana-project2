@@ -6,6 +6,7 @@ require('./config/database');
 
 const indexRouter = require('./routes/index');
 const resourcesRouter = require('./routes/resources');
+const infosRouter = require('./routes/infos');
 
 // Set up express app
 const app = express();
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 // Mount routes with app.use()
 app.use('/', indexRouter);
 app.use('/resources', resourcesRouter);
-
+app.use('/infos', infosRouter);
 
 // Tell App to listen
 app.listen(port, function() {

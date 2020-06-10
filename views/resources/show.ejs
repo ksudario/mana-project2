@@ -1,10 +1,22 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Name: </div>
-  <div><%= resource.name %></div>
+  <div>Organization: </div>
+  <div><%= resource.organization %></div>
   <div>Website: </div>
   <div><%= resource.website %></div>
+  <div>Practioner: </div>
+  <div><%= resource.practioner.join (', ') %></div>
+  <div>Available Through Telehealth: </div>
+  <div><%= resource.telehealth ? 'Yes' : 'No' %></div>
 </section>
   
 <%- include('../partials/footer') %>
+
+
+
+
+
+
+
+

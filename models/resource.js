@@ -9,7 +9,9 @@ const resourceSchema = new Schema({
     website: {
         type: String,
         required: true
-    }
-});
+    },
+    practioner: [String],
+    telehealth: { type: Boolean, default: false }
+    });
 
 module.exports = mongoose.model('Resource', resourceSchema);

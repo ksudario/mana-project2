@@ -1,10 +1,15 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/resources" method="POST">
-  <label>Name:</label>
-  <input type="text" name="name">
-  <label>Website:</label>
-  <input type="text" name="website">
-</form>
-
+<section id="show-page">
+  <div>Organization: </div>
+  <div><%= resource.organization %></div>
+  <div>Website: </div>
+  <div><%= resource.website %></div>
+  <div>Practioner: </div>
+  <div><%= resource.practioner.join (', ') %></div>
+  <div>Available Through Telehealth: </div>
+  <div><%= resource.telehealth ? 'Yes' : 'No' %></div>
+</section>
+  
 <%- include('../partials/footer') %>
+

@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <title><%= name %></title>
 </head>
 <body>
   <nav>
-    <a href="/resources/about" <%- name === 'About' ? 'class="active"' : '' %>>About</a>
+    <img src="/images/mana.png">
+    <a href="/infos/new" <%- name === 'About' ? 'class="active"' : '' %>>About</a>
     <a href="/resources" <%- name === 'Find Resources' ? 'class="active"' : '' %>>Find A Resource</a>
-    <a href="/resources/new" <%- name === 'Suggest A Resource' ? 'class="active"' : '' %>>Suggest A Resource</a>
-    
+    <a href="/resources/new" <%- name === 'Suggest A Resource' ? 'class="active"' : '' %>>Suggest A Resource</a> 
   </nav>
   <main>
-    <h1><%= name %></h1>
+    
