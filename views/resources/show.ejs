@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<h3>Resource Guide</h3>
 <section id="show-page">
   <div>Organization: </div>
   <div><%= resource.organization %></div>
@@ -10,6 +10,8 @@
   <div>Available Through Telehealth: </div>
   <div><%= resource.telehealth ? 'Yes' : 'No' %></div>
 </section>
+
+<a href="/resources/new">Are We Missing Something? Let Us Know!</a>
   
 <%- include('../partials/footer') %>
 

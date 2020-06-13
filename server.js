@@ -1,17 +1,20 @@
 // Require modules
 const express = require('express');
 const morgan = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
 const port = 3000; 
+
+require('dotenv').config()
 require('./config/database');
+require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const resourcesRouter = require('./routes/resources');
-const infosRouter = require('./routes/infos');
+
 
 // Set up express app
 const app = express();
-
-// Connect to DB
 
 // Configure the app with app.set()
 app.set('view engine', 'ejs');
@@ -22,9 +25,16 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 // Mount routes with app.use()
+app.use(session({
+    secret: 'MANA',
+    resave: false,
+    saveUninitialized: true
+  }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/resources', resourcesRouter);
-app.use('/infos', infosRouter);
+
 
 // Tell App to listen
 app.listen(port, function() {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const resourceSchema = new Schema({
-    name: {
+    organization: {
         type: String,
         required: true
     },
@@ -11,7 +11,11 @@ const resourceSchema = new Schema({
         required: true
     },
     practioner: [String],
-    telehealth: { type: Boolean, default: false }
+    telehealth: { type: Boolean, default: false },
+    googleId: String
+    }, {
+        timestamps: true
+
     });
 
 module.exports = mongoose.model('Resource', resourceSchema);

@@ -1,15 +1,19 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-  <div>Organization: </div>
-  <div><%= resource.organization %></div>
-  <div>Website: </div>
-  <div><%= resource.website %></div>
-  <div>Practioner: </div>
-  <div><%= resource.practioner.join (', ') %></div>
-  <div>Available Through Telehealth: </div>
-  <div><%= resource.telehealth ? 'Yes' : 'No' %></div>
-</section>
+<img id="kids" src = "/images/banner.png" margin-bottom=100px>
+<h3>Autism Resource Submission Form</h3>
+<br><br>
+<form id="new-form" action="/resources" method="POST">
+  <label>Organization:</label>
+  <input type="text" name="organnization">
+  <label>Website:</label>
+  <input type="text" name="website">
+  <label>Practioner (Please separate with commas):</label>
+  <input type="text" name="practioner">
+  <label>Available Through Telehealth:</label>
+  <input type="checkbox" name="telehealth" checked>
+  <input type="submit" value="SUBMIT">
+</form>
   
 <%- include('../partials/footer') %>
 

@@ -1,10 +1,12 @@
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const Resource = require('../models/resource');
 
 module.exports = {
     index,
     show,
     new: newResource,
-    create
+    create,
+    info
 };
 
 function index(req, res) {
@@ -36,4 +38,8 @@ function create(req, res) {
         console.log(resource);
         res.redirect('/resources');
     })
+}
+
+function info(req, res) {
+    res.render('resources/info', { name: 'About'});
 }
