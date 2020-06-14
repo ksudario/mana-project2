@@ -50,7 +50,7 @@
   
   nav > a:hover {
     color: white;
-    background-color: #424748;
+    background-color: whitesmoke;
   }
   
   nav > a.active {
