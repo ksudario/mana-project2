@@ -2,8 +2,6 @@
 
 <img src = "/images/home.png" alt="superhero kids">
 <h1>Resource Guide</h1>
-
-
 <table id="list">
   <thead>
     <tr>
@@ -16,9 +14,9 @@
   <tbody>
     <% resources.forEach(function(r) { %>
       <tr>
-        <td><%= r.Organization %></td>
-        <td><%= r.Website %></td>
-        <td><%= r.Practioner %></td>
+        <td><%= r.organization %></td>
+        <td><%= r.website %></td>
+        <td><%= r.practioner %></td>
         <td><a href="/resources/<%= r._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
