@@ -8,20 +8,20 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 },
 function(accessToken, refreshToken, profile, cb) {
-    Resource.findOne({ 'googleId': profile.id }, function(err, student) {
+    Client.findOne({ 'googleId': profile.id }, function(err, client) {
         if (err) return cb(err);
-        if (student) {
-          return cb(null, student);
+        if (client) {
+          return cb(null, client);
         } else {
           // we have a new student via OAuth!
-          const newStudent = new Student({
+          const newClient = new Client({
             name: profile.displayName,
             email: profile.emails[0].value,
             googleId: profile.id
           });
-          newStudent.save(function(err) {
+          newClient.save(function(err) {
             if (err) return cb(err);
-            return cb(null, newStudent);
+            return cb(null, newClient);
           });
         }
       });

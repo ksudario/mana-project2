@@ -41,5 +41,7 @@ function create(req, res) {
 }
 
 function info(req, res) {
-    res.render('resources/info', { name: 'About'});
+    Resource.findById(req.params.id, function(err, resource){
+        res.render('resources/info', { name: 'Resource Name', resource });
+    })
 }

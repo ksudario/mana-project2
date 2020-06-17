@@ -1,11 +1,45 @@
 <%- include('../partials/header') %>
+<u><h3>Resource Guide</h3></u>
+<br><br>
+<section id="show-page">
+  <div>Organization: </div>
+  <div><%= resource.organization %></div>
+  <div>Website: </div>
+  <div><%= resource.website %></div>
+  <div>Practioner: </div>
+  <div><%= resource.practioner.join (', ') %></div>
+  <div>Available Through Telehealth: </div>
+  <div><%= resource.telehealth ? 'Yes' : 'No' %></div>
+</section>
+<br><br>
+<h2>Submit a review about this provider to help others find the best help.</h2>
+<br><br>
+<form id="add-review-form" method="POST"
+ action="/resources/<%= resource._id %>/comments">
+ <label>Review:</label>
+ <textarea name="content"></textarea>
+ <input type="submit" value="Add Review">
+</form>
 
-<header>
-  <h3>Meet Aidan...</h3>
-</header>
-  <p class = text></p>
-  <section>
-    <img src="/images/aidan.jpg" alt="Aidan" class="about"><br><br>
-  </section>
+<% if (resource.comments.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% resource.comments.forEach(function(c) { %>
+        <tr>
+          <td><%= c.createdAt.toLocaleDateString() %></td>
+          <td><%= c.content %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Reviews Yet</h5>
+<% } %>
 
 <%- include('../partials/footer') %>
