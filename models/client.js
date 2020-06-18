@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const eventSchema = new mongoose.Schema({
+const activitySchema = new mongoose.Schema({
   text: String
 }, {
   timestamps: true
@@ -10,7 +10,7 @@ const clientSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatarURL: String,
-  events: [eventSchema],
+  activity: [activitySchema],
   googleId: String
 }, {
   timestamps: true

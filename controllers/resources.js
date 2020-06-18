@@ -6,7 +6,6 @@ module.exports = {
     show,
     new: newResource,
     create,
-    info
 };
 
 function index(req, res) {
@@ -27,11 +26,6 @@ function newResource(req, res) {
 
 function create(req, res) {
     req.body.telehealth = !!req.body.telehealth;
-    req.body.practioner = req.body.practioner.replace(/\s*,\s*/g, ',');
-    if (req.body.practioner) req.body.practioner = req.body.practioner.split(',');
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
     const resource = new Resource(req.body);
     resource.save(function(err){
         if (err) return res.redirect('/resources/new');
@@ -40,8 +34,3 @@ function create(req, res) {
     })
 }
 
-function info(req, res) {
-    Resource.findById(req.params.id, function(err, resource){
-        res.render('resources/info', { name: 'Resource Name', resource });
-    })
-}

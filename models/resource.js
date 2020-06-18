@@ -1,6 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const clientSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    avatarURL: String,
+    googleId: String
+}, {
+
+});
+
 const commentSchema = new Schema({
     content: String,
 }, {

@@ -1,9 +1,9 @@
-const User = require('../models/client');
+const Client = require('../models/client');
 
 module.exports = {
   index,
-  addEvent,
-  delEvent
+  addActivity,
+  delActivity
 };
 
 function index(req, res) {
@@ -15,15 +15,15 @@ function index(req, res) {
   });
 }
 
-function addEvent(req, res) {
-  req.user.facts.push(req.body);
+function addActivity(req, res) {
+  req.user.activities.push(req.body);
   req.user.save(function(err){
     res.redirect('/clients');
   });
 }
 
-function delEvent(req, res) {
-  req.user.facts.splice(req.params.id, 1);
+function delActivity(req, res) {
+  req.user.activities.splice(req.params.id, 1);
   req.user.save(function(err){
     res.redirect('/clients');
   });

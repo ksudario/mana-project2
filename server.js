@@ -6,19 +6,20 @@ const passport = require('passport');
 const port = 3000; 
 const methodOverride = require('method-override');
 
-require('dotenv').config()
+require('dotenv').config();
+
+// create the Express app
+const app = express();
+
 require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const resourcesRouter = require('./routes/resources');
 const commentsRouter = require('./routes/comments');
-const infosRouter = require('./routes/infos');
 const clientsRouter = require('./routes/clients');
+const infosRouter = require('./routes/infos');
 
-
-// Set up express app
-const app = express();
 
 // Configure the app with app.set()
 app.set('view engine', 'ejs');
@@ -38,11 +39,12 @@ app.use(session({
   }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use('/', indexRouter);
-app.use('/resources', resourcesRouter);
+app.use('/', resourcesRouter);
 app.use('/', commentsRouter);
+app.use('/', clientsRouter);
 app.use('/', infosRouter);
-app.use('/clients', clientsRouter);
 
 
 
