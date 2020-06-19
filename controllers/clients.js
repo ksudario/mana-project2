@@ -31,7 +31,8 @@ function delActivity(req, res) {
 
 }
 
-function updateActivity(id, newText) {
-  activities[id].text = newText;
+function updateActivity (req, res) {
+  Client.updateOne(req.params.id, req.body.newText);
+  res.redirect('/activities');
 }
 

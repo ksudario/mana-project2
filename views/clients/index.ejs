@@ -1,8 +1,8 @@
 <html>
 <head>
   <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <!-- Materialize Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
@@ -16,16 +16,16 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper purple lighten-4">
-        <a href="/resources"><img alt="Mana" src="/images/mana.png" width="75"></a>  
+        <a href="/resources"><img alt="Mana" src="/images/mana.png" width="75"></a>
         <ul class="right">
           <li><a href="/resources">Home</a></li>
           <li>
-          <% if (user) { %>
+            <% if (user) { %>
             <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-          <% } else { %>
+            <% } else { %>
             <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-          <% } %>
-        </li>
+            <% } %>
+          </li>
         </ul>
       </div>
     </nav>
@@ -36,53 +36,51 @@
     <div class="row">
       <div id="clients" class="col s12">
         <% clients.forEach(function(client) { %>
-          <div class="card white">
-            <div class="card-content black-text">
-              <div>
-                <span class="card-title">
-                  <% if (client.avatarURL) { %>
-                    <img src="<% client.avatarURL %>" width="20" height="20" alt="Client Photo"/>
-                  <% } else { %>
-                    <i class="small material-icons">perm_idenity</i>
-                  <% } %>
-                  <span class="client-name"><%= client.name %></span>
-                  <% if (client.group) { %><span class="badge black">Parents <%= client.group %></span><% } %>
-                </span>
-              </div>
-              <ul class="collection">
-                <% client.activities.forEach(function(activity, index) { %>
-                  <li class="collection-item blue-grey-text text-darken-2"><%= activity.text %></li>
-                  <% if (client._id.equals(user && user._id)) { %>
-                    <form action="/activities/<%= activity._id%>?_method=DELETE" method ="POST">
-                      <button type="submit" class="btn white-text">Delete This Activity</button>
-                      <% } %>
-                      <% }) %>
-              </ul>
-        
-              <li>
-                <% if (client._id.equals(user && user._id)) { %>
-                <div class="card-action"></div>
-                <form action="/activities/<%= idx %>?_method=PUT">
-                <input type ="text" placeholder="Edit Activity!" name = "newText" value="<%= activity.text %>">
-                <button type = "submit" class="btn white-text"> Update</button>
-              </form>
-             
-              </li>
-              <li>
-              <% if (client._id.equals(user && user._id)) { %>
-              <div class="card-action">
-                <form action="/activities" method="POST">
-                <input type="text" name="text" class="black-text">
-                <button type ="submit" class="btn white-text">Add Activity</button>
-                </form>
-              </div>
-            <% } %>
+        <div class="card white">
+          <div class="card-content black-text">
+            <div>
+              <span class="card-title">
+                <% if (client.avatarURL) { %>
+                <img src="<% client.avatarURL %>" width="20" height="20" alt="Client Photo" />
+                <% } else { %>
+                <i class="small material-icons">perm_idenity</i>
+                <% } %>
+                <span class="client-name"><%= client.name %></span>
+                <% if (client.group) { %><span class="badge black">Parents <%= client.group %></span><% } %>
+              </span>
             </div>
-          </li>
+            <ul class="collection">
+              <% client.activities.forEach(function(activity, index) { %>
+              <li class="collection-item blue-grey-text text-darken-2"><%= activity.text %></li>
+              <% if (client._id.equals(user && user._id)) { %>
+              <form action="/activities/<%= activity._id%>?_method=DELETE" method="POST">
+                <button type="submit" class="btn white-text">Delete This Activity</button>
+                <form>
+                  <% } %>
+                  <% if (client._id.equals(user && user._id)) { %>
+                  <li>
+                    <div class="card-action"></div>
+                    <form action="/activities/<%= activity._id %>?_method=PUT">
+                      <input type="text" placeholder="Edit Activity!" name="newText" value="<%= activity.text %>">
+                      <button type="submit" class="btn white-text"> Update</button>
+                    </form>
+                  </li>
+                  <% } %>
+                  <% }) %>
+                  <% if (client._id.equals(user && user._id)) { %>
+                  <li>
+                    <div class="card-action">
+                      <form action="/activities" method="POST">
+                        <input type="text" name="text" class="black-text">
+                        <button type="submit" class="btn white-text">Add Activity</button>
+                      </form>
+                    </div>
+                    <% } %>
           </div>
+          </li>
+        </div>
         <% }) %>
       </div>
     </div>
-
-</main>
+  </main>
 </html>
