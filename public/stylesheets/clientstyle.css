@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(243, 227, 252);
+}
+
+  
+.card .card-content .card-title {
+    margin-bottom: 10px;
+}
+  
+header {
+    height: 100px;
+}
+
+.collection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+#search-row form {
+    padding-top: 20px;
+}
+  
+.client-name {
+    position: relative;
+    top: -5px;
+    font-family: "Seaweed Script";
+}
+
+.material-icons{
+    color: black;
+}

@@ -15,18 +15,17 @@
   <body>
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper blue">
-          <a href="" class="brand-logo left">MANA</a>
+        <div class="nav-wrapper purple lighten-4">
+          <a href="/resources"><img alt="Mana" src="/images/mana.png" width="75"></a>  
           <ul class="right">
-              <li><a href="/clients">See All Activities</a></li>
-        
+            <li><a href="/resources">Home</a></li>
             <li>
-              <% if (user) { %>
-                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-              <% } else { %>
-                <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-              <% } %>
-            </li>
+            <% if (user) { %>
+              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+              <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+          </li>
           </ul>
         </div>
       </nav>

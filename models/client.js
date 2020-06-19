@@ -10,7 +10,7 @@ const clientSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatarURL: String,
-  activity: [activitySchema],
+  activities: [activitySchema],
   googleId: String
 }, {
   timestamps: true

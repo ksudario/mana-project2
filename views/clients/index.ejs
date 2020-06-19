@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="/css/style.css" />
   <!-- JavaScript for Materialize -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/clientstyle.css' />
 </head>
-
 <body>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper blue">
-        <a href="" class="brand-logo left">MANA</a>
+      <div class="nav-wrapper purple lighten-4">
+        <a href="/resources"><img alt="Mana" src="/images/mana.png" width="75"></a>  
         <ul class="right">
           <li><a href="/resources">Home</a></li>
           <li>
@@ -30,15 +30,14 @@
       </div>
     </nav>
   </div>
-  <header class="container">
-
+  <header class="container"></header>
   </header>
   <main class="container">
     <div class="row">
       <div id="clients" class="col s12">
         <% clients.forEach(function(client) { %>
-          <div class="card blue">
-            <div class="card-content white-text">
+          <div class="card white">
+            <div class="card-content black-text">
               <div>
                 <span class="card-title">
                   <% if (client.avatarURL) { %>
@@ -47,23 +46,33 @@
                     <i class="small material-icons">perm_idenity</i>
                   <% } %>
                   <span class="client-name"><%= client.name %></span>
-                  <% if (client.group) { %><span class="badge white">Parents <%= client.group %></span><% } %>
+                  <% if (client.group) { %><span class="badge black">Parents <%= client.group %></span><% } %>
                 </span>
               </div>
               <ul class="collection">
                 <% client.activities.forEach(function(activity, index) { %>
-                  <li class="collection-item blue-grey-text text-darken-2"><%= fact.text %></li>
+                  <li class="collection-item blue-grey-text text-darken-2"><%= activity.text %></li>
                   <% if (client._id.equals(user && user._id)) { %>
-                    <form action="/activities/<%= fact._id%>?_method=DELETE" method ="POST">
+                    <form action="/activities/<%= activity._id%>?_method=DELETE" method ="POST">
                       <button type="submit" class="btn white-text">Delete This Activity</button>
                       <% } %>
                       <% }) %>
               </ul>
+        
+              <li>
+                <% if (client._id.equals(user && user._id)) { %>
+                <div class="card-action"></div>
+                <form action="/activities/<%= idx %>?_method=PUT">
+                <input type ="text" placeholder="Edit Activity!" name = "newText" value="<%= activity.text %>">
+                <button type = "submit" class="btn white-text"> Update</button>
+              </form>
+             
+              </li>
               <li>
               <% if (client._id.equals(user && user._id)) { %>
               <div class="card-action">
                 <form action="/activities" method="POST">
-                <input type="text" name="text" class="white-text">
+                <input type="text" name="text" class="black-text">
                 <button type ="submit" class="btn white-text">Add Activity</button>
                 </form>
               </div>
@@ -75,4 +84,5 @@
       </div>
     </div>
 
+</main>
 </html>

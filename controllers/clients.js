@@ -3,7 +3,8 @@ const Client = require('../models/client');
 module.exports = {
   index,
   addActivity,
-  delActivity
+  delActivity,
+  updateActivity
 };
 
 function index(req, res) {
@@ -29,3 +30,8 @@ function delActivity(req, res) {
   });
 
 }
+
+function updateActivity(id, newText) {
+  activities[id].text = newText;
+}
+

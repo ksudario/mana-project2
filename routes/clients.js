@@ -7,4 +7,6 @@ router.post('/activities', clientsCtrl.addActivity);
 
 router.delete('/activities/:id', clientsCtrl.delActivity);
 
+router.put('/activities/:id', clientsCtrl.updateActivity);
+
 module.exports = router;
