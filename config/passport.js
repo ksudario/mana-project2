@@ -3,15 +3,13 @@ const Client = require('../models/client')
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-
-
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    CLient.findOne({ 'googleId': profile.id }, function(err, client) {
+    Client.findOne({ 'googleId': profile.id }, function(err, client) {
       if (err) return cb(err);
       if (client) {
         return cb(null, client);
@@ -19,7 +17,8 @@ passport.use(new GoogleStrategy({
         const newClient = new Client({
           name: profile.displayName,
           email: profile.emails[0].value,
-          googleId: profile.id
+          googleId: profile.id,
+          avatarURL: profile.photos[0].value
         });
         newClient.save(function(err) {
           if (err) return cb(err);
