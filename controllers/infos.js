@@ -6,6 +6,6 @@ module.exports = {
 
 function info(req, res) {
     Resource.find({}, function(err, resources) {
-        res.render('resources/info')
+        res.render('resources/info', {name: 'Info'})
     });
 }

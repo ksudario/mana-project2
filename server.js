@@ -41,10 +41,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/', resourcesRouter);
+app.use('/resources', resourcesRouter);
 app.use('/', commentsRouter);
 app.use('/', clientsRouter);
-app.use('/', infosRouter);
+app.use('/info', infosRouter);
 
 
 
