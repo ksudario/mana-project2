@@ -4,21 +4,17 @@
 <h3>Browse through our list of providers</h3>
 <br><br>
 <table id="list">
-  <thead>
     <tr>
       <th>Organization</th>
-      <th>Website</th>
       <th>Practioner</th>
       <th></th>
     </tr>
-  </thead>
   <tbody>
     <% resources.forEach(function(r) { %>
       <tr>
         <td><%= r.organization %></td>
-        <td><%= r.website %></td>
         <td><%= r.practioner %></td>
-        <td><a href="/resources/<%= r._id %>">DETAILS</a></td>
+        <td><a href="/resources/<%= r._id %>">Click Here To Learn More About This Provider</a></td>
       </tr>
       <% }); %>
     </tbody>

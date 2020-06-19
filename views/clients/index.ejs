@@ -1,5 +1,8 @@
 <html>
 <head>
+  <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <!-- Materialize Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
@@ -33,7 +36,7 @@
   <main class="container">
     <div class="row">
       <div id="clients" class="col s12">
-        <% clients.forEach(function(activity) { %>
+        <% clients.forEach(function(client) { %>
           <div class="card blue">
             <div class="card-content white-text">
               <div>
@@ -52,7 +55,7 @@
                   <li class="collection-item blue-grey-text text-darken-2"><%= fact.text %></li>
                   <% if (client._id.equals(user && user._id)) { %>
                     <form action="/activities/<%= fact._id%>?_method=DELETE" method ="POST">
-                      <button type="submit" class="btn white-text">Delete This Activity!</button>
+                      <button type="submit" class="btn white-text">Delete This Activity</button>
                       <% } %>
                       <% }) %>
               </ul>
