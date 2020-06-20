@@ -21,8 +21,8 @@ An app to help parents or caregivers of kids with special needs to find resource
 ![image](https://i.imgur.com/bfBLyMA.png)
 ![image](https://i.imgur.com/Vrt5qyp.png)
 ![image](https://i.imgur.com/l15BnUo.png)
-![image](https://i.imgur.com/wewuHYf.png)
-![image](https://i.imgur.com/BD7R6XW.png)
+![image](https://i.imgur.com/oajkchb.png)
+![image](https://i.imgur.com/FUTXazM.png)
 
 
 ## Future Enhancements
