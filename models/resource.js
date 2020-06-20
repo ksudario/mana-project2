@@ -31,6 +31,16 @@ const resourceSchema = new Schema({
         type: String,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+
+    service:[String],
     practioner: [String],
     telehealth: { type: Boolean, default: false },
     comments: [commentSchema]

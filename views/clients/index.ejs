@@ -16,7 +16,7 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper purple lighten-4">
-        <a href="/resources"><img alt="Mana" src="/images/mana.png" width="75"></a>
+        <a href="/resources" class="logo">Mana</a>
         <ul class="right">
           <li><a href="/resources">Home</a></li>
           <li>
@@ -60,25 +60,22 @@
                   <% if (client._id.equals(user && user._id)) { %>
                   <div class="card-action"></div>
                 <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
-                  <input type="text" placeholder="Edit Activity!" name="newActivity" value="<%= activity.text %>">
+                  <input type="text" placeholder="Edit Activity!" name="text" value="<%= activity.text %>">
                   <button type="submit" class="btn white-text"> Update</button>
                 </form>
                 <% } %>
-                <% if (client._id.equals(user && user._id)) { %>
                 <li>
-               <div class="card-action">
-              <form action="/activities" method="POST">
-              <input type="text" name="text" class="black-text">
-              <button type="submit" class="btn white-text">Add Activity</button>
-              </form>
-    </div>
-    <% } %>
-
               <% }) %>
             </ul>
           </div>
         </div>
         <% }) %>
+      </div>
+      <div class="card-action">
+        <form action="/activities" method="POST">
+          <input type="text" name="text" class="black-text">
+          <button type="submit" class="btn white-text">Add Activity</button>
+        </form>
       </div>
     </div>
   </main>

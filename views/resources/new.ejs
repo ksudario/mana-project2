@@ -4,19 +4,23 @@
 <h3>Autism Resource Submission Form</h3>
 <br><br>
 <form id="new-form" action="/resources" method="POST">
-  <label>Organization:</label>
+  <label>Name of Organization:</label>
   <input type="text" name="organization">
   <label>Website:</label>
   <input type="text" name="website">
-  <label>Practioner (Please separate with commas):</label>
+  <label>Address:</label>
+  <input type="text" name="address">
+  <label>Phone Number:</label>
+  <input type="text" name="phone">
+  <label>Practitioner (Please separate with commas):</label>
   <input type="text" name="practioner">
   <label>Type of Therapy Offered</label>
   <select name="service">
-    <option value="ST">Speech Therapy</option>
-    <option value="OT">Occupational Therapy</option>
-    <option value="PT">Physical Therapy</option>
+    <option value="Speech Therapy">Speech Therapy</option>
+    <option value="Occupational Therapy">Occupational Therapy</option>
+    <option value="Physical Therapy">Physical Therapy</option>
     <option value="ABA">ABA</option>
-    <option value="Behavioral">Other Types of Behavioral Therapy</option>
+    <option value="Other">Other Types of Behavioral Therapy</option>
   </select>
   <label>If you chose "other", please indicate type of therapy</label>
   <input type="text" name="other">

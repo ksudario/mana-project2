@@ -1,25 +1,25 @@
 * {
     box-sizing: border-box;
-    font-family: Roboto;
+    font-family: 'Lato';
     color: #000000;
   }
 
   h1 {
-    font-family: Seaweed Script;
+    font-family: 'Seaweed Script';
     font-size: 120px;
     font-weight: 100;
     margin-bottom: 0px;
   }
 
   h2 {
-    font-family: Seaweed Script;
+    font-family: 'Seaweed Script';
     font-size: 24px;
     font-weight: 100;
     margin-bottom: 0px;
   }
 
   h3 {
-    font-family: Seaweed Script;
+    font-family: 'Seaweed Script';
     font-size: 64px;
     font-weight: 100;
     margin-bottom: 0px;
@@ -64,6 +64,12 @@
     margin-bottom: 50px;
   }
 
+  .logo {
+    font-family: Seaweed Script;
+    font-size: 30px;
+    font-weight: strong;
+    color: purple;
+  }
   .about {
     display: block;
     margin-top: 0px;
@@ -86,6 +92,13 @@
     border: 10px solid #A1F1FF;
     border-radius: 4px;
     padding: 5px;
+  }
+
+  .content {
+    font-family: 'Roboto Condensed';
+    font-size: 24px;
+    align-content: center;
+    margin: 20px;
   }
 
   nav > a {

@@ -4,23 +4,19 @@
 <h3>Browse through our list of providers</h3>
 <br><br>
 <table id="list">
-    <tr>
-      <th>Organization</th>
-      <th>Practioner</th>
-      <th></th>
-    </tr>
+    
   <tbody>
     <% resources.forEach(function(r) { %>
       <tr>
         <td><%= r.organization %></td>
-        <td><%= r.practioner %></td>
         <td><a href="/resources/<%= r._id %>">Click Here To Learn More About This Provider</a></td>
       </tr>
       <% }); %>
     </tbody>
   </table>
 <br><br><br>
-<h2>Are We Missing Something?</h2><h2><a href="/resources/new"> Let Us Know!</a></h2>
-<a href="/clients" <%- name === 'Add Activity' ? 'class="active"' : '' %>>Add Activity</a>
+<a href="/resources/new">Are We Missing Something? Let Us Know!</a>
+<br>
+<a href="/clients" <%- name === 'Add Activity' ? 'class="active"' : '' %>>Do You Have An Activity For Kids With Special Needs? Click Here!</a>
   
 <%- include('../partials/footer') %>

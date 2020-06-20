@@ -1,13 +1,17 @@
 <%- include('../partials/header') %>
-<background
-<u><h3>Resource Guide</h3></u>
+<img src = "/images/kids2.png" alt="superhero kids">
+<center><u><h3>Resource Guide</h3></u></center>
 <br><br>
 <section id="show-page">
   <div>Organization: </div>
   <div><%= resource.organization %></div>
   <div>Website: </div>
   <div><%= resource.website %></div>
-  <div>Practioner: </div>
+  <div>Address: </div>
+  <div><%= resource.address %></div>
+  <div>Phone Number: </div>
+  <div><%= resource.phone %></div>
+  <div>Practitioner: </div>
   <div><%= resource.practioner.join (', ') %></div>
   <div>Type of Service: </div>
   <div><%= resource.service %></div>
@@ -25,12 +29,9 @@
 </form>
 <% if (resource.comments.length) { %>
   <table>
-    <thead>
       <tr>
-        <th>Date</th>
-        <th>Review</th>
+        <th>Reviewed On:</th> 
       </tr>
-    </thead>
     <tbody>
       <% resource.comments.forEach(function(c) { %>
         <tr>
