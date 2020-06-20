@@ -55,29 +55,28 @@
               <% if (client._id.equals(user && user._id)) { %>
               <form action="/activities/<%= activity._id%>?_method=DELETE" method="POST">
                 <button type="submit" class="btn white-text">Delete This Activity</button>
-                <form>
+              </form>
                   <% } %>
                   <% if (client._id.equals(user && user._id)) { %>
-                  <li>
-                    <div class="card-action"></div>
-                    <form action="/activities/<%= activity._id %>?_method=PUT">
-                      <input type="text" placeholder="Edit Activity!" name="newText" value="<%= activity.text %>">
-                      <button type="submit" class="btn white-text"> Update</button>
-                    </form>
-                  </li>
-                  <% } %>
-                  <% }) %>
-                  <% if (client._id.equals(user && user._id)) { %>
-                  <li>
-                    <div class="card-action">
-                      <form action="/activities" method="POST">
-                        <input type="text" name="text" class="black-text">
-                        <button type="submit" class="btn white-text">Add Activity</button>
-                      </form>
-                    </div>
-                    <% } %>
+                  <div class="card-action"></div>
+                <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
+                  <input type="text" placeholder="Edit Activity!" name="newActivity" value="<%= activity.text %>">
+                  <button type="submit" class="btn white-text"> Update</button>
+                </form>
+                <% } %>
+                <% if (client._id.equals(user && user._id)) { %>
+                <li>
+               <div class="card-action">
+              <form action="/activities" method="POST">
+              <input type="text" name="text" class="black-text">
+              <button type="submit" class="btn white-text">Add Activity</button>
+              </form>
+    </div>
+    <% } %>
+
+              <% }) %>
+            </ul>
           </div>
-          </li>
         </div>
         <% }) %>
       </div>

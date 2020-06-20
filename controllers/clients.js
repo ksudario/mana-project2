@@ -32,7 +32,10 @@ function delActivity(req, res) {
 }
 
 function updateActivity (req, res) {
-  Client.updateOne(req.params.id, req.body.newText);
-  res.redirect('/activities');
+  const activity = req.user.activities.id(req.params.id);
+  activity.overwrite(req.body);
+  req.user.save(function() {
+    res.redirect('/clients');
+  });
 }
 
