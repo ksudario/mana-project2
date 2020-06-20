@@ -9,7 +9,6 @@ An app to help parents or caregivers of kids with special needs to find resource
 - CSS
 - JavaScript
 - Google Fonts
-- Mongoose
 - MongoDB
 - OAuth
 - Heroku
